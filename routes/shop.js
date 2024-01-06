@@ -12,7 +12,7 @@ router.get("/", (req, res, next) => {
   const products = adminData.products;
 
   //COULD PASS path:/shop - BUT KEEP IT MATCHED - OK
-  res.render("shop", { prods: products, docTitle: "Shop", path: "/" });
+  res.render("shop", { prods: products, pageTitle: "Shop", path: "/" });
   //SEND HTML FILE !! INSTEAD OF TEXT HTML AS BELOW
   //res.sendFile(path.join(__dirname, "../", "views", "shop.html"));
   // res.status(200).sendFile(path.join(__dirname, "../", "views", "shop.html"));

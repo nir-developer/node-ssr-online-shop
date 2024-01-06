@@ -5,7 +5,8 @@ const app = express();
 
 //PUG TEMPLATE ENGINE(2 steps) - pug is supported out of the box
 //NOTE - The default is : app.set('views', 'views') - but in this case I must store views in the views folder!
-app.set("view engine", "pug");
+// app.set("view engine", "pug");
+app.set("view engine", "ejs");
 app.set("views", "views");
 
 //npm i --save body-parser
@@ -34,6 +35,8 @@ app.use("/admin", adminData.routes);
 app.use("/", shopRoutes);
 
 //THE CATCH ALL M.W - PAGE NOT FOUND - TO RENDER ERROR PAGE - PERFECT!
+//THE {pageTitle:'Page Not Found'} will be passed to the EJS/PUG  template engine
+//SO I WILL BE ABLE TO REFERENCE IT IN THE TEMPLATE 404.ejs
 app.use((req, res, next) => {
   res.render("404", { pageTitle: "Page Not Found" });
   //res.sendFile(path.join(rootDir, "views", "add-product.html"));
